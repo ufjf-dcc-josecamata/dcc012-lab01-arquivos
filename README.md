@@ -1,4 +1,4 @@
-# Manipulando arquivos em C/c++
+# Manipulando arquivos em C/C++
 
 # :wave: Manipulaçao de Arquivos binários
 
