@@ -20,7 +20,7 @@ Nesta atividades, iremos implementar algo semelhante. Desajamos criar um embriã
 do nosso sistema SIGA. Nosso projeto está organizado na seguinte estrutura de arquivos:
 
 src
-  - estudante.h e estudante.cc : Implementa a entidade estudante
+  - [estudante.h](src/estudante.h) e [estudante.cc](src/estudante.cpp) : Implementa a entidade estudante
   - gerencia_siga.h e gerencia_siga.h.cc}: Implementa um sistema de gerenciamento de estudante.
   
 test 
