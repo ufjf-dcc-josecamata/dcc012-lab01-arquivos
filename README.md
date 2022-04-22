@@ -11,12 +11,13 @@ fechar arquivos e compreender os principais conceitos por tras dessas açoes.
 
 ## Atividade :
 
-No repositorio apresentamos um um pequeno exemplo de manipulação de arquivos binários 
+No repositorio [dcc012-arquivos](https://github.com/ufjf-dcc-josecamata/dcc012-arquivos) 
+apresentamos um um pequeno exemplo de manipulação de arquivos binários 
 usando a linguagem C. Neste exemplo, manipulamos o cadastro de informações de estudantes
 em um arquivo binário.
 
 Nesta atividades, iremos implementar algo semelhante. Desajamos criar um embrião
-do nosso sistema SIGA. Nosso projeto está organizado da seguinte maneira:
+do nosso sistema SIGA. Nosso projeto está organizado na seguinte estrutura de arquivos:
 
 src
   - estudante.h e estudante.cc : Implementa a entidade estudante
