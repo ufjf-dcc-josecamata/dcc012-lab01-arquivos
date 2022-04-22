@@ -1,23 +1,24 @@
-#ifndef SIGA_H__
-#define SIGA_H__
+#ifndef SIGA_H
+#define SIGA_H
 
 #include "estudante.h"
 
-class GerenciaSiga
+class Siga
 {
     public:
 
-        GerenciaSiga(string arquivo_estudante);
-        void CadastraEstudante(Estudante& est);
+        Siga(string arquivo_estudante);
+        void CadastraEstudante(Estudante* est);
         bool PesquisaPorMatricula(int matricula);
         void ImprimeEstudantePorMatricula(int matricula);
-        void ImprimeListaEstudante();
-        void AlteraCadastroEstudante(Estudante& est);
-        ~GerenciaSiga();
+        void AlteraCadastroEstudante(Estudante* est);
+        void SalvaListaEstudanteEmTexto(string arquivo_txt);
+        int ObterNumeroEstudantesArmazenados();
+        ~Siga();
     private:
-        string  arquivo_nome;
-        fstream file_stream;
+        string   arquivo_nome;
+        fstream  file_stream;
         int      n_estudantes;
 }
 
-#endif /* SIGA_H__ */
+#endif /* SIGA_H */

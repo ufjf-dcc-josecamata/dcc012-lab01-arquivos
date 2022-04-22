@@ -7,11 +7,14 @@
 
 using namespace std;
 
-Estudante::Estudante(char* nome, int matricula, int ira):
-    _matricula(matricula), _ira(ira)
-    {    
-        strcpy(_nome,nome);
-    }
+
+Estudante::Estudante(const char* nome, int matricula, int ano_ingresso, float ira)
+{    
+    strcpy(_nome,nome);
+    _matricula    = matricula;
+    _ano_ingresso = ano_ingresso;
+    _ira          = ira;
+}
         
 int Estudante::ObterMatricula()
 {
@@ -24,12 +27,12 @@ const char* Estudante::ObterNome()
 
 }
         
-float       Estudante::ObterIra()
+float Estudante::ObterIra()
 {
     return this->_ira;
 }
 
-void         Estudante::TrocarMatricula(int matricula)
+void Estudante::TrocarMatricula(int matricula)
 {
     this->_matricula = matricula;
 }
@@ -53,15 +56,18 @@ void Estudante::Imprimir()
 
 void Estudante::LerDoArquivoBinario(fstream &file)
 {
-    file.read((char*)&this->_matricula, sizeof(int));
-    file.read((char*) this->_nome, sizeof(char*)*STR_MAX_SIZE);
-    file.read((char*)&this->_ira, sizeof(float));
+    //CHECK: veja como é feita a leitura do arquivo binário!
+    file.read((char*)&_nome, sizeof(_nome));
+    file.read((char*)&_matricula, sizeof(_matricula));
+    file.read((char*)&_ano_ingresso, sizeof(_ano_ingresso));
+    file.read((char*)&_ira, sizeof(_ira));
 }
 
 void Estudante::EscreverNoArquivoBinario(fstream &file)
 {
-    file.write((char*)&this->_matricula, sizeof(int));
-    file.write((char*) this->_nome     , sizeof(char*)*STR_MAX_SIZE);
-    file.write((char*)&this->_ira      , sizeof(float));
+    //CHECK: veja como é feita a escrita do arquivo binário!
+    file.write((char*)&_nome, sizeof(_nome));
+    file.write((char*)&_matricula, sizeof(_matricula));
+    file.write((char*)&_ano_ingresso, sizeof(_ano_ingresso));
+    file.write((char*)&_ira, sizeof(_ira));
 }
-
