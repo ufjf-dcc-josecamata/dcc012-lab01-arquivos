@@ -18,10 +18,11 @@ em um arquivo binário.
 Nesta atividades, iremos implementar algo semelhante. Desajamos criar um embrião
 do nosso sistema SIGA. Nosso projeto está organizado da seguinte maneira:
 
-./src
+src
   - estudante.h e estudante.cc : Implementa a entidade estudante
   - gerencia_siga.h e gerencia_siga.h.cc}: Implementa um sistema de gerenciamento de estudante.
-./test 
+  
+test 
   - test1.cc:  Testa a abertura do arquivo.  
   - test2.cc:  Insere dados de estudante no gerencia_siga
   - test3.cc:  Cadastra um novo estudante na base de dados
