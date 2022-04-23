@@ -95,3 +95,11 @@ int Siga::ObterNumeroEstudantesArmazenados()
 {
     return this->n_estudantes;
 }
+
+// TODO: implementar função auxiliar para calcular a posição do registro de estudante
+// no arquivo binário.
+size_t Siga::CalculaPosicaoRegistroEstudante(int id_estudante)
+{
+    size_t pos = 0; // implemente aqui
+    return pos;
+}

@@ -11,7 +11,6 @@ using namespace std;
 class Siga
 {
     public:
-
         Siga(string arquivo_estudante);
         void CadastraEstudante(Estudante est);
         bool PesquisaPorMatricula(int matricula);
@@ -21,6 +20,11 @@ class Siga
         int ObterNumeroEstudantesArmazenados();
         ~Siga();
     private:
+
+        // Funcao auxiliar 
+        size_t CalculaPosicaoRegistroEstudante(int id_estudante);
+
+        // atributos
         string   arquivo_nome;
         fstream  file_stream;
         int      n_estudantes;
