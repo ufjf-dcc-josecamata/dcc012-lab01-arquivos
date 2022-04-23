@@ -13,10 +13,10 @@ class Siga
     public:
 
         Siga(string arquivo_estudante);
-        void CadastraEstudante(Estudante* est);
+        void CadastraEstudante(Estudante est);
         bool PesquisaPorMatricula(int matricula);
         void ImprimeEstudantePorMatricula(int matricula);
-        void AlteraCadastroEstudante(Estudante* est);
+        void AlteraCadastroEstudante(Estudante est);
         void SalvaListaEstudanteEmTexto(string arquivo_txt);
         int ObterNumeroEstudantesArmazenados();
         ~Siga();

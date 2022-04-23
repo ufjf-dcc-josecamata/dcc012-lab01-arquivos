@@ -8,8 +8,11 @@ Siga::Siga(string arquivo_dados_estudante)
 {
 
     this->arquivo_nome = arquivo_dados_estudante;
-    //  TODO: Implementar arquivo em modo binário
-    // Obter numero de registros de estudante no arquivos
+    //  TODO: Implementar abertura de arquivo em modo binário
+    // this->file_stream
+    
+    // TODO: Obter numero de registros de estudante no arquivos
+    // 
     // Lembre-se que o arquivo de dados de estudante é binário e 
     // que já pode conter registros de estudantes.
     // this->n_estudantes = 
@@ -18,6 +21,14 @@ Siga::Siga(string arquivo_dados_estudante)
     //   SIGA: Inicializado com sucesso
     //  caso o arquivo seja aberto corretamente ou vaso contrário, 
     //   SIGA: Erro ao abrir arquivo
+    if(this->file_stream.is_open())
+    {
+        cout << "SIGA: Inicializado com sucesso" << endl;
+    }
+    else
+    {
+        cout << "SIGA: Erro ao abrir arquivo" << endl;
+    }
 
 }
 
@@ -38,14 +49,15 @@ bool  Siga::PesquisaPorMatricula(int matricula)
     return false;
 }
         
-void Siga::CadastraEstudante(Estudante* est)
+void Siga::CadastraEstudante(Estudante est)
 {
     //Todo: implementar cadastro de estudante
     // Passos:
     // Testar se est já foi cadastrado
-    // Se cadastrado, move cursos para final do arquivo e saia   
-    // Caso Contrário, escreva o estudante no final do arquivo.
-   
+    // Se cadastrado, move cursor para inicio do arquivo e saia   
+    // Caso Contrário, escreva o estudante no final do arquivo, move cursor
+    // para o inicio do arquivo e incremente o numero de estudantes
+    
 }
         
 void Siga::ImprimeEstudantePorMatricula(int matricula)
@@ -67,7 +79,7 @@ void Siga::SalvaListaEstudanteEmTexto(string arquivo_txt)
 }
         
         
-void Siga::AlteraCadastroEstudante(Estudante* est)
+void Siga::AlteraCadastroEstudante(Estudante est)
 {
     // TODO: implementar alteração de cadastro de estudante
     // Pesquisa dr o aluno com est->matricul estda cadastrado
@@ -77,4 +89,9 @@ void Siga::AlteraCadastroEstudante(Estudante* est)
 Siga::~Siga()
 {
     //TODO: fecha arquivo
+}
+
+int Siga::ObterNumeroEstudantesArmazenados()
+{
+    return this->n_estudantes;
 }
