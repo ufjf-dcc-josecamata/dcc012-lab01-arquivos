@@ -25,11 +25,15 @@ const char* Estudante::ObterNome()
 {
     return this->_nome;
 
-}
-        
+}     
 float Estudante::ObterIra()
 {
     return this->_ira;
+}
+
+int Estudante::ObterAnoIngresso()
+{
+    return this->_ano_ingresso;
 }
 
 void Estudante::TrocarMatricula(int matricula)
@@ -45,6 +49,11 @@ void Estudante::TrocarNome(const char* nome)
 void Estudante::TrocarIra(int ira)
 {
     this->_ira = ira;
+}
+
+void Estudante::TrocarAnoIngresso(int ano_ingresso)
+{
+    this->_ano_ingresso = ano_ingresso;
 }
 
 void Estudante::Imprimir()

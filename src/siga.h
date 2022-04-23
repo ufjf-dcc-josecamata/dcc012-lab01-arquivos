@@ -1,6 +1,11 @@
 #ifndef SIGA_H
 #define SIGA_H
 
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
 #include "estudante.h"
 
 class Siga
@@ -19,6 +24,6 @@ class Siga
         string   arquivo_nome;
         fstream  file_stream;
         int      n_estudantes;
-}
+};
 
 #endif /* SIGA_H */

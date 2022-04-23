@@ -12,7 +12,12 @@ Siga::Siga(string arquivo_dados_estudante)
     // Obter numero de registros de estudante no arquivos
     // Lembre-se que o arquivo de dados de estudante é binário e 
     // que já pode conter registros de estudantes.
-    // this->n_estudantes =     
+    // this->n_estudantes = 
+
+    // A função deve imprimir:
+    //   SIGA: Inicializado com sucesso
+    //  caso o arquivo seja aberto corretamente ou vaso contrário, 
+    //   SIGA: Erro ao abrir arquivo
 
 }
 
@@ -30,6 +35,7 @@ bool  Siga::PesquisaPorMatricula(int matricula)
     // Fim-Para
     // Coloque o cursor para o final do arquivo
     // retorne F
+    return false;
 }
         
 void Siga::CadastraEstudante(Estudante* est)
@@ -68,7 +74,7 @@ void Siga::AlteraCadastroEstudante(Estudante* est)
     // Se o aluno estiver cadastrado, reescreva a informação do aluno.
 }
         
-~Siga()
+Siga::~Siga()
 {
     //TODO: fecha arquivo
 }
