@@ -8,9 +8,12 @@
 using namespace std;
 
 
+Estudante::Estudante(): _nome(""), _matricula(0), _ano_ingresso(0), _ira(0)
+{};
+
 Estudante::Estudante(const char* nome, int matricula, int ano_ingresso, float ira)
 {    
-    strcpy(_nome,nome);
+     strcpy(_nome,nome);
     _matricula    = matricula;
     _ano_ingresso = ano_ingresso;
     _ira          = ira;
@@ -26,7 +29,7 @@ const char* Estudante::ObterNome()
     return this->_nome;
 
 }     
-float Estudante::ObterIra()
+float Estudante::ObterIRA()
 {
     return this->_ira;
 }
@@ -46,7 +49,7 @@ void Estudante::TrocarNome(const char* nome)
     strcpy(_nome,nome);
 }
         
-void Estudante::TrocarIra(int ira)
+void Estudante::TrocarIRA(int ira)
 {
     this->_ira = ira;
 }
@@ -58,9 +61,9 @@ void Estudante::TrocarAnoIngresso(int ano_ingresso)
 
 void Estudante::Imprimir()
 {
-    cout <<"Nome: " << this->_nome << endl;
+    cout <<"Nome: "      << this->_nome << endl;
     cout <<"Matricula: " << this->_matricula << endl;
-    cout <<"IRA: " << this->_matricula << endl; 
+    cout <<"IRA: "       << this->_matricula << endl; 
 }
 
 void Estudante::LerDoArquivoBinario(fstream &file)

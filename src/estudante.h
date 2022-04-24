@@ -11,16 +11,17 @@ using namespace std;
 class Estudante
 {
     public:
+        Estudante();
         Estudante(const char* nome, int matricula, int ano_ingresso, float ira);
 
         int         ObterMatricula();
         int         ObterAnoIngresso();
         const char* ObterNome();
-        float       ObterIra();
+        float       ObterIRA();
 
         void TrocarMatricula(int matricula);
         void TrocarNome(const char* nome);
-        void TrocarIra(int ira);
+        void TrocarIRA(int ira);
         void TrocarAnoIngresso(int ano_ingresso);
 
         void Imprimir();
