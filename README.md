@@ -6,8 +6,8 @@
 
 Objetivo dessa atividade é praticar manipulaçao de arquivos em C++ 🚀
 
-Espera-se que ao final desta atividade você seja capaz de criar, editar, buscar informaççes e 
-fechar arquivos e compreender os principais conceitos por tras dessas aç√es. 
+Espera-se que ao final desta atividade você seja capaz de criar, editar, buscar informaçoes e 
+fechar arquivos e compreender os principais conceitos por tras dessas açoes. 
 
 ## Atividade :
 
