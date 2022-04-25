@@ -26,7 +26,7 @@ Siga::Siga(string arquivo_dados_estudante)
         return; 
     }
 
-    // TODO: Obter numero de registros de estudante no arquivos
+    // TODO: Obter numero de registros de estudante no arquivo
     // 
     // Lembre-se que o arquivo de dados de estudante é binário e 
     // que já pode conter registros de estudantes.
@@ -52,7 +52,7 @@ int  Siga::PesquisaPorMatricula(int matricula)
         
 void Siga::CadastraEstudante(Estudante est)
 {
-    //Todo: Implementar cadastro de estudante
+    // TODO: Implementar cadastro de estudante
     // Passos:
     // Testar se est já foi cadastrado
     // Se já cadastrado, saia   
@@ -66,6 +66,7 @@ void Siga::ImprimeEstudantePorMatricula(int matricula)
     //TODO: implementar impressão de estudante por matricula.
     // Pesquisa aluno por matricula
     // Se o aluno estiver cadastrado, imprima o aluno.
+    // caso contrario: Estudante não cadastrado
 
 }
         
@@ -76,6 +77,8 @@ void Siga::SalvaListaEstudanteEmTexto(string arquivo_txt)
     // Primeira linha conter o cabeçalho:
     // Matricula;Nome;Ano de Ingresso;IRA
     // Demais linhas com as informações dos estudantes.
+    // nao use espacos entre os campos!!
+   
 }
         
         
@@ -83,7 +86,9 @@ void Siga::AlteraCadastroEstudante(Estudante est)
 {
     // TODO: implementar alteração de cadastro de estudante
     // Pesquisa se o aluno com est->matricula está cadastrado
-    // Se o aluno estiver cadastrado, reescreva a informação do aluno.
+    // Se o aluno estiver cadastrado, reescreva a informação do aluno e 
+    // escreva  "Dados Alterados"
+    // Caso contrário, escreva: "Estudante não cadastrado"
 }
         
 Siga::~Siga()
