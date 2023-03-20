@@ -11,9 +11,9 @@ using namespace std;
 // o numero de estudantes armazenados
 int main(int argc, char* argv[])
 {
-    Siga siga("estudantes.bin");
-
-    siga.SalvaListaEstudanteEmTexto("estudantes.csv");
+    Siga siga;
+    siga.SetDatabase("data/estudantes.bin");
+    siga.SalvaCSV("data/new_estudantes.csv");
 
     return 0;
 }

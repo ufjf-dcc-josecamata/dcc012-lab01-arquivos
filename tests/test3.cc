@@ -10,11 +10,11 @@ using namespace std;
 // o numero de estudantes armazenados
 int main(int argc, char* argv[])
 {
-    Siga siga("estudantes.bin");
-
-    siga.CadastraEstudante(Estudante("Ana",1001, 2006, 9.5));
-
-    cout << "Numero de estudantes armazenados: " << siga.ObterNumeroEstudantesArmazenados() << endl;
+    Siga siga;
+    siga.SetDatabase("data/estudantes.bin");
+    int idx = siga.PesquisaPorMatricula(677);
+    if(idx == -1)
+        return -1;
 
     return 0;
 }

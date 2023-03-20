@@ -21,13 +21,10 @@ class Estudante
 
         void TrocarMatricula(int matricula);
         void TrocarNome(const char* nome);
-        void TrocarIRA(int ira);
+        void TrocarIRA(float ira);
         void TrocarAnoIngresso(int ano_ingresso);
 
         void Imprimir();
-
-        void LerDoArquivoBinario(fstream &file);
-        void EscreverNoArquivoBinario(fstream &file);
 
     private:
         char   _nome[STR_MAX_SIZE];

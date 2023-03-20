@@ -49,7 +49,7 @@ void Estudante::TrocarNome(const char* nome)
     strcpy(_nome,nome);
 }
         
-void Estudante::TrocarIRA(int ira)
+void Estudante::TrocarIRA(float ira)
 {
     this->_ira = ira;
 }
@@ -64,22 +64,4 @@ void Estudante::Imprimir()
     cout <<"Nome: "      << this->_nome << endl;
     cout <<"Matricula: " << this->_matricula << endl;
     cout <<"IRA: "       << this->_matricula << endl; 
-}
-
-void Estudante::LerDoArquivoBinario(fstream &file)
-{
-    //CHECK: veja como é feita a leitura do arquivo binário!
-    file.read((char*)&_nome, sizeof(_nome));
-    file.read((char*)&_matricula, sizeof(_matricula));
-    file.read((char*)&_ano_ingresso, sizeof(_ano_ingresso));
-    file.read((char*)&_ira, sizeof(_ira));
-}
-
-void Estudante::EscreverNoArquivoBinario(fstream &file)
-{
-    //CHECK: veja como é feita a escrita do arquivo binário!
-    file.write((char*)&_nome, sizeof(_nome));
-    file.write((char*)&_matricula, sizeof(_matricula));
-    file.write((char*)&_ano_ingresso, sizeof(_ano_ingresso));
-    file.write((char*)&_ira, sizeof(_ira));
 }

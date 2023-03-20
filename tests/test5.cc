@@ -10,32 +10,19 @@ using namespace std;
 // o numero de estudantes armazenados
 int main(int argc, char* argv[])
 {
-    Siga siga("estudantes.bin");
-    int matricula; 
-    char nome[STR_MAX_SIZE+1];
-    int ano;
-    float nota;
+    Siga siga;
+    siga.SetDatabase("data/estudantes.bin");
+    int idx = siga.PesquisaPorMatricula(456);
+    if(idx != -1)
+    {
+        siga.AlteraCadastroEstudante(idx, Estudante("Maria", 456, 2018, 9.0));
+        Estudante est = siga.ObterEstudante(idx);
+        if(est.ObterMatricula() != 456)
+            return -1;
 
-#ifndef CLASSROOM 
-    cout << "Entre com a matricula: ";
-#endif
-
-    cin >> matricula; 
-
-    #ifndef CLASSROOM 
-    cout << "Entre com a nome: ";
-    #endif
-    cin.ignore();
-    cin.getline(nome,STR_MAX_SIZE,'\n');
-    #ifndef CLASSROOM 
-    cout << "Entre com o ano: ";  
-    #endif
-    cin >> ano;
-    #ifndef CLASSROOM 
-    cout << "Entre com a nota: ";
-    #endif  
-    cin >> nota;
-    siga.AlteraCadastroEstudante(Estudante(nome, matricula, ano, nota));
-    
+        if(est.ObterIRA() != 9.0)
+            return -1;
+    }
+        
     return 0;
 }

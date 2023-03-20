@@ -4,7 +4,7 @@
 
 ## 🤓 Resumo
 
-Objetivo dessa atividade é praticar manipulaçao de arquivos em C++ 🚀
+Objetivo dessa atividade é praticar a manipulaçao de arquivos em C++ 🚀
 
 Espera-se que ao final desta atividade você seja capaz de criar, editar, buscar informaçoes e 
 fechar arquivos e compreender os principais conceitos por tras dessas açoes. 
@@ -16,12 +16,13 @@ apresentamos um um pequeno exemplo de manipulação de arquivos binários
 usando a linguagem C. Neste exemplo, manipulamos o cadastro de informações de estudantes
 em um arquivo binário.
 
-Nesta atividades, iremos implementar algo semelhante. Desejamos criar um embrião
-do nosso sistema SIGA. Nosso projeto está organizado na seguinte estrutura de arquivos:
+Nesta atividades, desejamos criar um embrião do nosso sistema SIGA. 
+Iremos manipular o cadastro de informações de estudantes em um arquivo binário.
+Nosso projeto está organizado na seguinte estrutura de arquivos:
 
 src
   - [estudante.h](src/estudante.h) e [estudante.cc](src/estudante.cpp) : Implementa a entidade estudante
-  - siga.h e siga.h.cc}: Implementa um sistema simplista de gerenciamento de estudante.
+  - siga.h e siga.cc: Implementa um sistema simplista de gerenciamento de estudante.
   
 test
   - test1.cc:  Testa a abertura do arquivo.  
@@ -45,7 +46,7 @@ Para a compilação em ambiente Unix/linux, use o comando:
 
 ## 📝 Importante
 
-Você deve implementar uma versão C++ usando fstream.
+Você deve implementar em C++ usando fstream.
 
 ## 📝 Procure saber mais...
 

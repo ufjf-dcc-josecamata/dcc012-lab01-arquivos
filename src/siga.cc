@@ -1,36 +1,102 @@
 #include <string>
+#include <sstream>
 
 using namespace std;
 
 #include "siga.h"
+#include "config.h"
 
-Siga::Siga(string arquivo_dados_estudante)
+Siga::Siga()
+{
+    this->arquivo_nome = "";
+    this->n_estudantes = 0;
+}
+
+void Siga::SetDatabase(string arquivo_dados_estudante)
 {
 
-    this->arquivo_nome = arquivo_dados_estudante;
-    //  TODO: Implementar abertura de arquivo em modo binário, tanto para leitura e escrita
-    // se arquivo ja existir, o conteudo pre existente não deve ser apagado. 
-    // this->file_stream = ...
+    this->arquivo_nome = INPUT_DATA_DIR+arquivo_dados_estudante;
+
+    // Obter numero de estudantes no arquivo
+    // Se o arquivo não existir, o numero de estudantes é zero
+    // Se o arquivo existir, o numero de estudantes é o numero de registros no arquivo
+    //  o numero de estudantes é armazenado no atributo n_estudantes
+
+   
+
+    this->file_stream = fstream(this->arquivo_nome, ios::in | ios::out | ios::binary);
+    cout << "SIGA: Inicializado com sucesso" << endl;
     
-    // A função deve imprimir:
-    //   SIGA: Inicializado com sucesso
-    //  caso o arquivo seja aberto corretamente ou vaso contrário, 
-    //   SIGA: Erro ao abrir arquivo
-    if(this->file_stream.is_open())
+    // arquivo nao existe ainda
+    if(!this->file_stream.is_open())
     {
-        cout << "SIGA: Inicializado com sucesso" << endl;
-    }
-    else
-    {
-        cout << "SIGA: Erro ao abrir arquivo" << endl;
-        return; 
+    
+        // cria um arquivo vazio
+        ofstream out(arquivo_nome, ios::binary);
+        out.close();
+        // reabre para leitura e escrita
+        this->file_stream = fstream(this->arquivo_nome, ios::in | ios::out | ios::binary);
+        if(!this->file_stream.is_open())
+        {
+            cout << "SIGA: Erro ao criar arquivo de dados de estudante" << endl;
+            return;
+        }
+    
     }
 
-    // TODO: Obter numero de registros de estudante no arquivo
-    // 
-    // Lembre-se que o arquivo de dados de estudante é binário e 
-    // que já pode conter registros de estudantes.
-    // this->n_estudantes = 
+
+    this->file_stream.seekg(0, this->file_stream.end);
+    int length = this->file_stream.tellg();
+    this->file_stream.seekg(0, this->file_stream.beg);
+    this->n_estudantes = length / sizeof(Estudante);
+    
+    cout << this->n_estudantes << " registros de estudantes" << endl;
+}
+
+
+void Siga::LerCSV(string arquivo_csv)
+{   
+    //Implementação leitura de arquivo CSV
+    // Passos:
+    // Abrir arquivo CSV
+
+    string arquivo_csv_path = INPUT_DATA_DIR+arquivo_csv;
+    ifstream csv_file;
+    csv_file.open(arquivo_csv_path);
+    if(!csv_file.is_open())
+    {
+        cout << "Erro ao abrir arquivo CSV" << endl;
+        return;
+    }
+    // Ler cabeçalho
+    string line;
+    getline(csv_file, line);
+
+    // Para cada linha de dados
+    while(getline(csv_file, line))
+    {
+        // Ler um estudante do arquivo CSV
+        Estudante est;
+        stringstream ss(line);
+        string token;
+        getline(ss, token, ',');
+        est.TrocarNome(token.c_str());
+        getline(ss, token, ',');
+        est.TrocarMatricula(stoi(token));
+        getline(ss, token, ',');
+        est.TrocarAnoIngresso(stoi(token));
+        getline(ss, token, '\n');
+        est.TrocarIRA(stof(token));
+
+        // Escrever o objeto estudante no arquivo binário
+        this->EscrevaEstudante(this->n_estudantes, est);
+
+        // Atualize o numero de estudantes no atributo n_estudantes
+        this->n_estudantes++;
+    }
+    // Fim-Para
+    // Fechar arquivo CSV
+    csv_file.close();
 
     cout << this->n_estudantes << " registros de estudantes" << endl;
 }
@@ -50,53 +116,74 @@ int  Siga::PesquisaPorMatricula(int matricula)
     return -1;
 }
         
-void Siga::CadastraEstudante(Estudante est)
+void Siga::AdicionaEstudante(Estudante est)
 {
     // TODO: Implementar cadastro de estudante
     // Passos:
     // Testar se est já foi cadastrado
-    // Se já cadastrado, saia   
-    // Caso Contrário, escreva o estudante no final do arquivo 
+    // Se já cadastrado, retorne sem fazer nada   
+    // Caso Contrário, adicione o estudante no final do arquivobinário
     // e incremente o numero de estudantes
     
 }
-        
-void Siga::ImprimeEstudantePorMatricula(int matricula)
+  
+Estudante Siga::ObterEstudante(int idx)
 {
-    //TODO: implementar impressão de estudante por matricula.
-    // Pesquisa aluno por matricula
-    // Se o aluno estiver cadastrado, imprima o aluno.
-    // caso contrario: Estudante não cadastrado
-
+    Estudante est;
+    // TODO: implementar obter estudante
+    // Posicione o cursor para o inicio do arquivo
+    // Posicione o cursor para a posição idx
+    // Leia o estudante na posição idx
+    // Retorne o estudante
+    return est;
 }
         
-void Siga::SalvaListaEstudanteEmTexto(string arquivo_txt)
+void Siga::SalvaCSV(string arquivo_csv)
 {
-    //TODO: implementar salvar lista de estudantes em texto
-    // A saida deve ser a seguinte formatação:
-    // Primeira linha conter o cabeçalho:
-    // Matricula;Nome;Ano de Ingresso;IRA
-    // Demais linhas com as informações dos estudantes.
-    // nao use espacos entre os campos!!
+    string arquivo_csv_path = INPUT_DATA_DIR+arquivo_csv;
+    // TODO: implementar salvamento de arquivo CSV
+    // Passos:
+    // Abrir arquivo CSV
+    // Escrever cabeçalho
+    // Posicione o cursor para o inicio do arquivo binário
+    // Para cada linha de dados
+    //    Ler um estudante do arquivo binário
+    //    Escrever o objeto estudante no arquivo CSV
+    // Fim-Para
+    // Fechar arquivo CSV
    
 }
         
         
-void Siga::AlteraCadastroEstudante(Estudante est)
+void Siga::AlteraCadastroEstudante(int idx, Estudante est)
 {
     // TODO: implementar alteração de cadastro de estudante
-    // Pesquisa se o aluno com est->matricula está cadastrado
-    // Se o aluno estiver cadastrado, reescreva a informação do aluno e 
-    // escreva  "Dados Alterados"
-    // Caso contrário, escreva: "Estudante não cadastrado"
+    // Passos:
+    // Posicione o cursor para o inicio do arquivo
+    // Posicione o cursor para a posição idx
+    // Escreva o estudante na posição idx
+    // Saia da função
 }
         
 Siga::~Siga()
 {
-    //TODO: fecha arquivo
+    this->file_stream.close();
 }
 
-int Siga::ObterNumeroEstudantesArmazenados()
+int Siga::ObterNumeroEstudantes()
 {
     return this->n_estudantes;
+}
+
+
+void Siga::LeiaEstudante(int idx, Estudante &est)
+{
+    this->file_stream.seekg(idx * sizeof(Estudante), this->file_stream.beg);
+    this->file_stream.read((char *)&est, sizeof(Estudante));
+}
+
+void Siga::EscrevaEstudante(int idx, Estudante est)
+{
+    this->file_stream.seekp(idx * sizeof(Estudante), this->file_stream.beg);
+    this->file_stream.write((char *)&est, sizeof(Estudante));
 }

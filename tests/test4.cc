@@ -8,15 +8,15 @@ using namespace std;
 // Inprime Informações de um estudante na base de dados 
 int main(int argc, char* argv[])
 {
-    Siga siga("estudantes.bin");
-    int matricula; 
-#ifndef CLASSROOM 
-    cout << "Entre com a matricula: ";
-#endif
-    cin >> matricula; 
 
-    siga.ImprimeEstudantePorMatricula(matricula);
-
-
+    Siga siga;
+    siga.SetDatabase("data/estudantes.bin");
+    int idx = siga.PesquisaPorMatricula(123);
+    if(idx != -1)
+    {
+        Estudante est = siga.ObterEstudante(idx);
+        if(est.ObterMatricula() != 123)
+            return -1;
+    }
     return 0;
 }
