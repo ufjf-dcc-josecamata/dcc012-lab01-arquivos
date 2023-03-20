@@ -50,6 +50,12 @@ Para a compilação em ambiente Unix/linux, use o comando:
   ```
     cmake ../.
   ```
+  - Compile os testes:
+  
+  ```
+    make ../.
+  ```
+  
   - Rode os testes:
    
   ```
