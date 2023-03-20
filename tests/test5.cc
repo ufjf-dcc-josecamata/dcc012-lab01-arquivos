@@ -11,7 +11,7 @@ using namespace std;
 int main(int argc, char* argv[])
 {
     Siga siga;
-    siga.SetDatabase("data/estudantes.bin");
+    siga.SetDatabase("estudantes.bin");
     int idx = siga.PesquisaPorMatricula(456);
     if(idx != -1)
     {
@@ -22,7 +22,9 @@ int main(int argc, char* argv[])
 
         if(est.ObterIRA() != 9.0)
             return -1;
+        
+        return 0;
     }
         
-    return 0;
+    return -1;
 }

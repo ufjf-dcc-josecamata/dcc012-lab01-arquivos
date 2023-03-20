@@ -10,3 +10,12 @@ include_directories(src)
 add_subdirectory(src)
 add_subdirectory(tests)
 
+
+enable_testing()
+add_test(NAME test1 COMMAND test1)
+add_test(NAME test2 COMMAND test2)
+add_test(NAME test3 COMMAND test3)
+add_test(NAME test4 COMMAND test4)
+add_test(NAME test5 COMMAND test5)
+add_test(NAME test6 COMMAND test6)
+

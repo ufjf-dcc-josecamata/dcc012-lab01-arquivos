@@ -12,8 +12,8 @@ using namespace std;
 int main(int argc, char* argv[])
 {
     Siga siga;
-    siga.SetDatabase("data/estudantes.bin");
-    siga.SalvaCSV("data/new_estudantes.csv");
+    siga.SetDatabase("estudantes.bin");
+    siga.SalvaCSV("new_estudantes.csv");
 
     return 0;
 }
