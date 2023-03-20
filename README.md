@@ -36,12 +36,24 @@ test
 
 Para a compilação em ambiente Unix/linux, use o comando:
 
- - cmake -B build
- - cmake --build build 
- - ./build/test1
- - ./build/test2
- - 
- 
+  - Crie um diretório build
+  ```
+    mkdir build
+  ```
+ - Entre no diretório
+   ```
+    cd build
+  ```
+ - Chame o cmake
+  ```
+    cmake ../.
+  ```
+
+- Rode os testes:
+   
+  ```
+    ctest
+  ```
 
 ## 📝 Importante
 
