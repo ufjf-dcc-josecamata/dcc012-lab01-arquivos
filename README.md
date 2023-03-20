@@ -36,24 +36,27 @@ test
 
 Para a compilação em ambiente Unix/linux, use o comando:
 
-  - Crie um diretório build
+ - Crie um diretório build
   ```
     mkdir build
   ```
  - Entre no diretório
-   ```
+
+  ```
     cd build
   ```
- - Chame o cmake
+  - Chame o cmake
+ 
   ```
     cmake ../.
   ```
-
-- Rode os testes:
+  - Rode os testes:
    
   ```
     ctest
   ```
+
+*Importante:* Entre uma chamadas do ctest, remova o arquivo estudantes.bin da pasta tests/data.
 
 ## 📝 Importante
 
